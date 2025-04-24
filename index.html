@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelTools Pro - Online File Conversion & Editing Suite</title>
+    <title>PixelTools Pro - Smart File Optimization</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,7 +13,7 @@
             --background: #f8fafc;
             --text: #1e293b;
             --surface: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -27,9 +27,10 @@
             background: var(--background);
             color: var(--text);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* Header Styles */
+        /* Modern Header */
         .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -41,15 +42,16 @@
         }
 
         .nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 1rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -57,95 +59,85 @@
             transition: transform 0.3s ease;
         }
 
-        .logo:hover {
-            transform: translateX(-5px);
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Responsive Navigation */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 8rem 2rem 4rem;
+            padding: 8rem 2rem 6rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: var(--background);
-            transform: skewY(-3deg);
-            z-index: 1;
-        }
-
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            font-weight: 700;
         }
 
-        /* Upload Section */
-        .upload-card {
-            background: var(--surface);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow);
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text);
             max-width: 600px;
-            margin: 2rem auto;
-            position: relative;
-            z-index: 2;
-            transition: transform 0.3s ease;
+            margin: 0 auto 2rem;
         }
 
-        .upload-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .upload-btn {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .upload-btn:hover {
-            background: var(--secondary);
-            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Tools Grid */
+        /* Tool Cards */
         .tools-grid {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 4rem auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .tool-card {
             background: var(--surface);
-            padding: 2rem;
-            border-radius: 1rem;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
         .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
         }
 
         .tool-card::after {
@@ -168,59 +160,56 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        /* Features Section */
-        .features {
-            background: var(--surface);
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 1rem;
-            background: var(--background);
-        }
-
-        /* Footer Styles */
-        footer {
-            background: var(--text);
-            color: white;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--secondary);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
 
             .tools-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .upload-card {
-                padding: 2rem;
+                padding: 0 1rem;
             }
         }
     </style>
@@ -228,123 +217,61 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="img-compress.html" class="logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-magic"></i>
-                PixelTools Pro
+                PixelTools
             </a>
             <div class="nav-links">
-                <a href="#" class="upload-btn">
-                    <i class="fas fa-user"></i> Sign Up
-                </a>
+                <a href="img-compress.html" class="nav-link">Image Tools</a>
+                <a href="#pdf-tools" class="nav-link">PDF Tools</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="img-compress.html" class="nav-link">Compress</a>
             </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Transform Your Files with<br>AI-Powered Precision</h1>
-            <p>Edit, convert, and enhance images & PDFs in seconds</p>
+            <h1>Transform Your Files with<br>Smart Optimization</h1>
+            <p>Professional-grade tools for images, PDFs, and documents</p>
             
-            <div class="upload-card">
-                <button class="upload-btn">
-                    <i class="fas fa-cloud-upload-alt"></i> Start Converting Now
-                </button>
-                <p class="supported-files">Supports JPG, PNG, PDF, WEBP, SVG</p>
-            </div>
-        </section>
-
-        <section class="tools-grid">
-            <a href="/pdf-tools" class="tool-card">
-                <i class="fas fa-file-pdf tool-icon"></i>
-                <h3>PDF Tools</h3>
-                <p>Compress, merge, split and convert PDF files</p>
-            </a>
-
-            <a href="/image-tools" class="tool-card">
-                <i class="fas fa-image tool-icon"></i>
-                <h3>Image Tools</h3>
-                <p>Edit, convert, compress and enhance photos</p>
-            </a>
-
-            <a href="/ai-tools" class="tool-card">
-                <i class="fas fa-robot tool-icon"></i>
-                <h3>AI Tools</h3>
-                <p>Background removal, image enhancement & more</p>
-            </a>
-        </section>
-
-        <section class="features">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt feature-icon"></i>
-                    <h4>Secure Processing</h4>
-                    <p>All files deleted automatically after 1 hour</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-infinity feature-icon"></i>
-                    <h4>Unlimited Conversions</h4>
-                    <p>No restrictions on file size or conversions</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-mobile-alt feature-icon"></i>
-                    <h4>Mobile Friendly</h4>
-                    <p>Works perfectly on all devices</p>
-                </div>
+            <div class="tools-grid">
+                <a href="img-compress.html" class="tool-card">
+                    <i class="fas fa-file-image tool-icon"></i>
+                    <h3>Image Compressor</h3>
+                    <p>Reduce file size while maintaining quality</p>
+                </a>
+                <a href="#pdf-tools" class="tool-card">
+                    <i class="fas fa-file-pdf tool-icon"></i>
+                    <h3>PDF Tools</h3>
+                    <p>Merge, split, and convert PDF documents</p>
+                </a>
+                <a href="#converter" class="tool-card">
+                    <i class="fas fa-exchange-alt tool-icon"></i>
+                    <h3>File Converter</h3>
+                    <p>Convert between multiple file formats</p>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4>PixelTools Pro</h4>
-                <p>Making file conversion simple and efficient</p>
-            </div>
-            <div>
-                <h4>Tools</h4>
-                <ul>
-                    <li><a href="/pdf-tools">PDF Tools</a></li>
-                    <li><a href="/image-tools">Image Tools</a></li>
-                    <li><a href="/ai-tools">AI Tools</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/pricing">Pricing</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.createElement('div');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        menuToggle.style.display = 'none';
-        document.querySelector('.nav').appendChild(menuToggle);
-
-        function updateMenu() {
-            if (window.innerWidth < 768) {
-                menuToggle.style.display = 'block';
-                document.querySelector('.nav-links').style.display = 'none';
-            } else {
-                menuToggle.style.display = 'none';
-                document.querySelector('.nav-links').style.display = 'flex';
-            }
-        }
+        // Mobile Navigation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
         menuToggle.addEventListener('click', () => {
-            document.querySelector('.nav-links').style.display = 
-                document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('active');
         });
 
-        window.addEventListener('resize', updateMenu);
-        updateMenu();
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
