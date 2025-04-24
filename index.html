@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolKit Pro - Online File Conversion & Editing Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #10b981;
+            --background: #f8fafc;
+            --text: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tool-categories {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-large {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+                ToolKit Pro
+            </div>
+            <div class="nav-links">
+                <a href="#" class="btn">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Your All-in-One File Conversion Suite</h1>
+            <p>Transform images, edit PDFs, convert files - all with professional quality</p>
+            
+            <div class="upload-section">
+                <h3>Get Started Now</h3>
+                <button class="btn" style="margin-top: 1rem;">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload File
+                </button>
+                <p class="text-muted" style="margin-top: 1rem; color: #64748b;">
+                    Supports JPG, PNG, PDF, WEBP, and more
+                </p>
+            </div>
+        </section>
+
+        <section class="tool-categories">
+            <h2>Popular Tool Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-file-pdf icon-large"></i>
+                    <h3>PDF Tools</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li>PDF to Word</li>
+                        <li>PDF Merge</li>
+                        <li>PDF Split</li>
+                        <li>PDF Compression</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-image icon-large"></i>
+                    <h3>Image Tools</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li>Image Converter</li>
+                        <li>Photo Editor</li>
+                        <li>Background Remover</li>
+                        <li>Image Compressor</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-categories">
+            <h2>Featured Tools</h2>
+            <div class="featured-tools">
+                <div class="tool-card">
+                    <i class="fas fa-compress-alt"></i>
+                    <h4>PDF Compressor</h4>
+                    <p>Reduce PDF file size without quality loss</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-magic"></i>
+                    <h4>AI Photo Enhancer</h4>
+                    <p>Improve image quality using AI technology</p>
+                </div>
+
+                <div class="tool-card">
+                    <i class="fas fa-file-excel"></i>
+                    <h4>PDF to Excel</h4>
+                    <p>Convert PDF tables to editable spreadsheets</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <p>&copy; 2023 ToolKit Pro. All rights reserved.</p>
+            <div style="margin-top: 1rem;">
+                <a href="#" style="color: white; margin: 0 0.5rem;">About</a>
+                <a href="#" style="color: white; margin: 0 0.5rem;">Contact</a>
+                <a href="#" style="color: white; margin: 0 0.5rem;">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple file upload handler
+        document.querySelector('.upload-section button').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = "image/*, application/pdf";
+            input.click();
+            
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if(file) {
+                    // Handle file upload logic here
+                    console.log('File selected:', file.name);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
